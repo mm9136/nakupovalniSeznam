@@ -1,9 +1,6 @@
 package si.fri.prpo.skupina14.zrna;
 
-import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.NakupovalniSeznam;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.Uporabnik;
-
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -11,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.Arrays;
 import java.util.List;
 
 @ApplicationScoped
@@ -35,12 +31,7 @@ public class UporabnikZrno {
         List<String> uporabniskaImena = em.createNamedQuery("Uporabnik.getAllUserNames").getResultList();
         return uporabniskaImena;
     }
-    //getShoppingListsOfAUser by user's username
-    public List<NakupovalniSeznam> getVseNakupovalneSeznameUporabnika (String uporabniskoIme) {
-        List<NakupovalniSeznam> nakupovalniSeznami = em.createNamedQuery("Uporabnik.getShoppingListsOfAUser").setParameter("uporabniskoIme", uporabniskoIme).getResultList();
-        return nakupovalniSeznami;
-    }
-    //getUserFromUserName if exists
+    //getUserFromUserName
     public Uporabnik getUporabnikZUporabniskimImenom (String uporabniskoIme) {
         Uporabnik uporabnik = null;
         try {
@@ -51,7 +42,7 @@ public class UporabnikZrno {
         }
         return uporabnik;
     }
-    //getUserFromEmail if exists
+    //getUserFromEmail
     public Uporabnik getUporabnikZEmailom (String email) {
         Uporabnik uporabnik = null;
         try {
