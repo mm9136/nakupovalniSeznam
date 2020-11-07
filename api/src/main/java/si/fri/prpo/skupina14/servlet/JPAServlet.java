@@ -22,15 +22,20 @@ public class JPAServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         List<Uporabnik> uporabniki = uporabnikZrno.pridobiVseUporabnike();
+        List<Uporabnik> uporabnikiCriteria = uporabnikZrno.getUporabnikiCriteriaAPI();
 
-        // izpis uporabnikov na spletno stran
         resp.setContentType("text/html; charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
 
         PrintWriter writer = resp.getWriter();
 
         //izpis vseh uporabnikov
-        writer.append("<h2>1) Poizvedba po vseh podatkih uporabnikov v podatkovni bazi</h2>");
-        uporabniki.stream().forEach( u -> writer.append("<p>"+ u.toString() + "</p>"));
+        writer.println("<h2>1) Izpis porabnikov iz podatkovne baze:</h2>");
+        uporabniki.forEach( u -> writer.println("<p>"+ u.toString() + "</p>"));
+
+        //izpis vseh uporabnikov s CriteriaAPI
+        writer.println("<h2>2) Izpis porabnikov iz podatkovne baze z CriteriaAPI:</h2>");
+        uporabnikiCriteria.forEach( u -> writer.println("<p>"+ u.toString() + "</p>"));
+
     }
 }
