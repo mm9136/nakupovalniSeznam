@@ -1,0 +1,4 @@
+# Project exclude paths
+/api/target/
+/entitete/target/
+/storitve/target/
