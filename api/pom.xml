@@ -25,6 +25,10 @@
             <groupId>si.fri.prpo.skupina14.nakupovalniSeznam</groupId>
             <artifactId>storitve</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
