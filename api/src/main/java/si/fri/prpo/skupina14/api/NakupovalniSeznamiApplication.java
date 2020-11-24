@@ -1,4 +1,4 @@
-package si.fri.prpo.skupina14.api.v1;
+package si.fri.prpo.skupina14.api;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.*;
