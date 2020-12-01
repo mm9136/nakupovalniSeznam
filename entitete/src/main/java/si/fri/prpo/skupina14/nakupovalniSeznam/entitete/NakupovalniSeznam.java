@@ -2,6 +2,7 @@ package si.fri.prpo.skupina14.nakupovalniSeznam.entitete;
 
 import java.time.LocalDate;
 import java.util.Date;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
@@ -30,6 +31,7 @@ public class NakupovalniSeznam {
     @Temporal(TemporalType.TIMESTAMP)
     private Date ustvarjen;
 
+    @JsonbTransient
     @ManyToOne()
     @JoinColumn(name = "uporabnik_id")
     private Uporabnik uporabnik;

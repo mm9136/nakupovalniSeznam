@@ -1,5 +1,5 @@
 package si.fri.prpo.skupina14.nakupovalniSeznam.entitete;
-
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package si.fri.prpo.skupina14.zrna;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 
 import javax.annotation.PostConstruct;
@@ -61,6 +63,18 @@ public class OznakaZrno {
             em.remove(o);
         }
         return id;
+    }
+
+    //pridobi vse uporabnike
+    public List<Oznaka> pridobiVseOznake(QueryParameters query) {
+        //List<Oznaka> oznake = em.createNamedQuery("Oznaka.getAll").getResultList();
+        List<Oznaka> oznake = JPAUtils.queryEntities(em, Oznaka.class, query);
+        return oznake;
+    }
+
+    public Long pridobiStOznak(QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, Oznaka.class, query);
+        return count;
     }
 
 

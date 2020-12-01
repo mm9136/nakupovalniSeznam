@@ -7,6 +7,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.transaction.Transactional;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import javax.enterprise.context.ApplicationScoped;
 import java.util.List;
@@ -64,5 +66,16 @@ public class ArtikelZrno {
         }
 
         return artikelId;
+    }
+
+    public List<Artikel> pridobiVseArtikle(QueryParameters query){
+        //return em.createNamedQuery("Artikel.getAll").getResultList();
+        List<Artikel> artikli = JPAUtils.queryEntities(em, Artikel.class, query);
+        return artikli;
+    }
+
+    public Long pridobiStArtiklov(QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, Oznaka.class, query);
+        return count;
     }
 }

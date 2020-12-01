@@ -1,4 +1,6 @@
 package si.fri.prpo.skupina14.zrna;
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -57,5 +59,14 @@ public class NakupovalniSeznamZrno {
         return id;
     }
 
+    public List<NakupovalniSeznam> pridobiVseNakupovalneSezname(QueryParameters query){
+        //return em.createNamedQuery("NakupovalniSeznam.getAll").getResultList();
+        List<NakupovalniSeznam> ns = JPAUtils.queryEntities(em, NakupovalniSeznam.class, query);
+        return ns;
+    }
 
+    public Long pridobiStNakupovalnihSeznamov(QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, NakupovalniSeznam.class, query);
+        return count;
+    }
 }

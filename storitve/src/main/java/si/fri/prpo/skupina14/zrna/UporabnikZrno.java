@@ -1,20 +1,22 @@
 package si.fri.prpo.skupina14.zrna;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
-
+import java.util.UUID;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
+
+import javax.enterprise.context.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.logging.Logger;
-import java.util.UUID;
 
 @ApplicationScoped
 public class UporabnikZrno {
@@ -23,12 +25,19 @@ public class UporabnikZrno {
     private EntityManager em;
     private Logger log = Logger.getLogger(UporabnikZrno.class.getName());
     private String idZrna;
-
+    //vaje 6 ///////////////////////
     //getAll users
-    public List<Uporabnik> pridobiVseUporabnike() {
-        List<Uporabnik> uporabniki = em.createNamedQuery("Uporabnik.getAll").getResultList();
+    public List<Uporabnik> pridobiVseUporabnike(QueryParameters query) {
+        //List<Uporabnik> uporabniki = em.createNamedQuery("Uporabnik.getAll").getResultList();
+        //vaje 6 je to spremenjeno
+        List<Uporabnik> uporabniki = JPAUtils.queryEntities(em, Uporabnik.class, query);
         return uporabniki;
     }
+    public Long pridobiStUporabnikov(QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, Uporabnik.class, query);
+        return count;
+    }
+    /////////////////////////////
     //getFullNameOfAUser with his username
     public List<String> getImeInPriimekUporabnika(String uporabniskoIme) {
         List<String> imenaInPriimki = em.createNamedQuery("Uporabnik.getFullNameOfAUser").setParameter("uporabniskoIme", uporabniskoIme).getResultList();

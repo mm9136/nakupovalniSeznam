@@ -3,6 +3,7 @@ package si.fri.prpo.skupina14.zrna;
 import javax.enterprise.context.ApplicationScoped;
 
 import si.fri.prpo.skupina14.dtos.*;
+import si.fri.prpo.skupina14.izjeme.NeveljavniRegistriraniUporabnikDtoException;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import si.fri.prpo.skupina14.dtos.*;
 import javax.annotation.PostConstruct;
@@ -35,10 +36,12 @@ public class UpravljanjeUporabnikovZrno {
         if (uporabnikDto.getEmail() == null) {
             String msg = "Ne morem registrirati uporabnika brez email naslova";
             log.severe(msg);
+            throw new NeveljavniRegistriraniUporabnikDtoException(msg);
         }
         else if (uporabnikDto.getUporabniskoIme() == null) {
             String msg = "Ne morem regitrirati uporabnika brez uporabniskega imena";
             log.severe(msg);
+            throw new NeveljavniRegistriraniUporabnikDtoException(msg);
         }
         Uporabnik uporabljenoUporabniskoIme = uporabnikZrno.getUporabnikZUporabniskimImenom(uporabnikDto.getUporabniskoIme());
         Uporabnik uporabljenEmail = uporabnikZrno.getUporabnikZEmailom(uporabnikDto.getEmail());
@@ -47,12 +50,14 @@ public class UpravljanjeUporabnikovZrno {
         if (uporabljenEmail != null) {
             String msg = "Uporabniški račun s tem email naslovom že obstaja";
             log.severe(msg);
+            throw new NeveljavniRegistriraniUporabnikDtoException(msg);
         }
 
         //ce obstaja uporabnik s tem uporabniskim imenom ne naredi uporabnika in zahteva drugo ime
         if (uporabljenoUporabniskoIme != null) {
             String msg = "Uporabniško ime je že zasedeno. Izberite drugega.";
             log.severe(msg);
+            throw new NeveljavniRegistriraniUporabnikDtoException(msg);
         }
 
         //ce ne obstaja se tak uporabnik da ustvari
@@ -64,5 +69,4 @@ public class UpravljanjeUporabnikovZrno {
 
         return uporabnikZrno.dodajUporabnika(novi);
     }
-
 }

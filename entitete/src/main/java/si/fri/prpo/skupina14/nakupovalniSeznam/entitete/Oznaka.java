@@ -1,5 +1,6 @@
 package si.fri.prpo.skupina14.nakupovalniSeznam.entitete;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class Oznaka {
     @Column(name = "opis")
     private String opis;
 
+    @JsonbTransient
     @ManyToMany(mappedBy = "oznake")
     private List<NakupovalniSeznam> nakupovalniSeznami;
 

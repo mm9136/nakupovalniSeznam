@@ -3,6 +3,9 @@ kumuluzee:
   version: 1.0.0
   env:
     name: dev
+  openapi:
+    ui:
+      enaled: true
   datasources:
     - jndi-name: jdbc/NakupovalniSeznamDS
       connection-url: jdbc:postgresql://localhost:5432/uporabniki

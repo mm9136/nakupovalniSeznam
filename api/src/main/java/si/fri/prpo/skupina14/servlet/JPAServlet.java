@@ -34,9 +34,9 @@ public class JPAServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         //izpis vseh uporabnikov
-        List<Uporabnik> uporabniki = uporabnikZrno.pridobiVseUporabnike();
-        writer.println("<h2>1) Izpis uporabnikov iz podatkovne baze:</h2>");
-        uporabniki.forEach( u -> writer.println("<p>"+ u.toString() + "</p>"));
+        //List<Uporabnik> uporabniki = uporabnikZrno.pridobiVseUporabnike();
+        //writer.println("<h2>1) Izpis uporabnikov iz podatkovne baze:</h2>");
+        //uporabniki.forEach( u -> writer.println("<p>"+ u.toString() + "</p>"));
 
         //izpis vseh uporabnikov s CriteriaAPI
         writer.println("<h2>2) Izpis uporabnikov iz podatkovne baze z CriteriaAPI:</h2>");
@@ -93,6 +93,9 @@ public class JPAServlet extends HttpServlet {
         Artikel artikel2 = upravljanjeArtiklovZrno.ustvariArtikel(noviArtikel2);
         noviArtikel2.setArtikelId(artikel2.getId());
 
+        //izpisemo vse artikle v nakupovalnem seznamu
+        writer.append(upravljanjeNakupovalnihSeznamovZrno.izpisiVseArtikle(nakupovalniSeznamDto));
+
         /*
         //odstranjevanje nakupovalnega seznama
         Integer seznam = upravljanjeNakupovalnihSeznamovZrno.odstraniNakupovalniSeznam(3);
@@ -100,5 +103,11 @@ public class JPAServlet extends HttpServlet {
         //izpisemo vse artikle v nakupovalnem seznamu
         //writer.append(upravljanjeNakupovalnihSeznamovZrno.izpisiVseArtikle(nakupovalniSeznamDto));
         */
+        ///vaje 6//////////////////DEMONSTRACIJA ZA ZAGOVOR
+        //REST KLICI
+        // ostranjevanje: GET http://localhost:8080/v1/artikli?offset=2&limit=3
+        // sortiranje GET http://localhost:8080/v1/uporabniki?order=email ASC,priimek DESC
+        // filtriranje GET http://localhost:8080/v1/oznake?filter=id:IN:[1,2,3]
+        //////////////////////////////
     }
 }
