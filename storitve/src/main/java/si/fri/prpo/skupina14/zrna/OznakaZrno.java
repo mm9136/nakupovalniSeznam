@@ -25,12 +25,12 @@ public class OznakaZrno {
 
     @PostConstruct
     private void init(){
-        log.info("Inicijalizacija zrna " + Oznaka.class.getSimpleName());
+        log.info("Inicijalizacija zrna " + /* ovo je vilo do sada, u vaje 7 smenjeno  sa Oznaka na -> */ NakupovalniSeznam.class.getSimpleName());
     }
 
     @PreDestroy
     private void destroy(){
-        log.info("Deinicijalizacija zrna " + Oznaka.class.getSimpleName());
+        log.info("Deinicijalizacija zrna " +/*Oznaka*/ NakupovalniSeznam .class.getSimpleName());
     }
 
 

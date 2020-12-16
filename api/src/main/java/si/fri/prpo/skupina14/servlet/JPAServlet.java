@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Logger;
 
 @WebServlet("/nakupovalniSeznam")
 public class JPAServlet extends HttpServlet {
@@ -26,6 +27,9 @@ public class JPAServlet extends HttpServlet {
 
     @Inject
     UpravljanjeArtiklovZrno upravljanjeArtiklovZrno;
+
+    private static final Logger log = Logger.getLogger(JPAServlet.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html; charset=UTF-8");
@@ -109,5 +113,7 @@ public class JPAServlet extends HttpServlet {
         // sortiranje GET http://localhost:8080/v1/uporabniki?order=email ASC,priimek DESC
         // filtriranje GET http://localhost:8080/v1/oznake?filter=id:IN:[1,2,3]
         //////////////////////////////
+
     }
+
 }

@@ -2,6 +2,8 @@ package si.fri.prpo.skupina14.zrna;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import si.fri.prpo.skupina14.dtos.*;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import javax.annotation.PostConstruct;

@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import si.fri.prpo.skupina14.zrna.*;
 
@@ -28,6 +29,10 @@ public class OznakeVir {
 
     @Inject
     private OznakaZrno oznakaZrno;
+    //vaje 7
+    @Schema(description = "Vrne seznam oznak")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6//////////
     @Operation(description = "Vrne seznam oznak.", summary = "Seznam oznak",
             tags = "oznake", responses = {
@@ -54,6 +59,10 @@ public class OznakeVir {
                 .build();
         //////////////////////
     }
+    //vaje 7
+    @Schema(description = "Vrne podrobnosti oznak")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6//////////
     @Operation(description = "Vrne podrobnosti oznake.", summary = "Podrobnosti oznake",
             tags = "oznake",
@@ -75,6 +84,10 @@ public class OznakeVir {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+    //vaje 7
+    @Schema(description = "Doda oznake")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6//////////
     @Operation(description = "Dodajanje nove oznake,", summary = "Dodajanje oznake",
             tags = "oznake",
@@ -93,6 +106,10 @@ public class OznakeVir {
                 .entity(oznakaZrno.dodajOznako(oznaka))
                 .build();
     }
+    //vaje 7
+    @Schema(description = "Posodobi oznake")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6//////////
     @Operation(description = "Posodobi oznako", summary = "Posodobitev oznake",
             tags = "oznake",
@@ -112,6 +129,10 @@ public class OznakeVir {
                 .entity(oznakaZrno.posodobiOznako(id, oznaka))
                 .build();
     }
+    //vaje 7
+    @Schema(description = "Odstrani oznake")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6//////////
     @Operation(description = "Odstranitev določene oznake", summary = "Odstranitev oznake",
             tags = "oznake",

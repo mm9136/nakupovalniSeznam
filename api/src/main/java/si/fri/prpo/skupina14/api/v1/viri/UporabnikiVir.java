@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import si.fri.prpo.skupina14.anotacije.BeleziKlice;
 import si.fri.prpo.skupina14.dtos.*;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
@@ -33,6 +34,13 @@ public class UporabnikiVir {
     private UporabnikZrno uporabnikZrno;
     @Inject
     private UpravljanjeUporabnikovZrno upravljanjeUporabnikovZrno;
+
+    @Inject
+    private UpravljanjeNakupovalnihSeznamovZrno upravljanjeNakupovalnihSeznamovZrno;
+    //vaje 7
+    @Schema(description = "Vrne seznam uporabnikov")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6///////////////
     @Operation(description = "Vrne seznam uporabnikov.", summary = "Seznam uporabnikov",
             tags = "uporabniki", responses = {
@@ -61,6 +69,10 @@ public class UporabnikiVir {
                 .build();
         ////////////////////
     }
+    //vaje 7
+    @Schema(description = "Vrne podrobnosti uporabnikov")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6////////////////
     @Operation(description = "Vrne podrobnosti uporabnika.", summary = "Podrobnosti uporabnika",
             tags = "uporabniki",
@@ -82,6 +94,10 @@ public class UporabnikiVir {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+    //vaje 7
+    @Schema(description = "Doda  uporabnika")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6////////////////
     @Operation(description = "Registrira novega uporabnika. Če je username ali email uporabnika že zaseden vrne napako s statusom 400.", summary = "Registracija uporabnika",
             tags = "uporabniki",
@@ -111,6 +127,10 @@ public class UporabnikiVir {
                 .entity(ustvarjen)
                 .build();
     }
+    //vaje 7
+    @Schema(description = "Posodobi uporabnika")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6////////////////
     @Operation(description = "Posodobi uporabnika", summary = "Posodobitev uporabnika",
             tags = "uporabniki",
@@ -130,6 +150,10 @@ public class UporabnikiVir {
                 .entity(uporabnikZrno.posodobiUporabnika(id, uporabnik))
                 .build();
     }
+    //vaje 7
+    @Schema(description = "Odstrani uporabnika")
+    @SecurityRequirement(name = "none")
+    //////
     //vaje 6////////////////
     @Operation(description = "Odstranitev določenega uporabnika", summary = "Odstranitev uporabnika",
             tags = "uporabniki",

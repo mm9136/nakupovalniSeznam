@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import si.fri.prpo.skupina14.dtos.*;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import si.fri.prpo.skupina14.zrna.*;
@@ -29,6 +30,10 @@ public class NakupovalniSeznamiVir extends Application {
 
     @Inject
     private UpravljanjeNakupovalnihSeznamovZrno upravljanjeNakupovalnihSeznamovZrno;
+    //vaje 7
+    @Schema(description = "Pridobi nakupovalni seznam")
+    @SecurityRequirement(name = "none")
+    //////
     ///vaje6/////////
     @Operation(description = "Vrne seznam nakupovalnih seznamov.", summary = "Seznam nakupovalnih seznamov",
             tags = "nakupovalni seznami", responses = {
@@ -55,6 +60,10 @@ public class NakupovalniSeznamiVir extends Application {
                 .build();
         //////////////////////
     }
+    //vaje 7
+    @Schema(description = "Vrne podrobnosti nakupovalni seznam")
+    @SecurityRequirement(name = "none")
+    //////
     ///vaje6/////////
     @Operation(description = "Vrne podrobnosti nakupovalnega seznama.", summary = "Podrobnosti nakupovalnega seznama",
             tags = "nakupovalni seznami",
@@ -76,6 +85,10 @@ public class NakupovalniSeznamiVir extends Application {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+    //vaje 7
+    @Schema(description = "Dodaj nakupovalni seznam")
+    @SecurityRequirement(name = "none")
+    //////
     ///vaje6/////////
     @Operation(description = "Ustvari nakupovalni seznam in ga doda uporabniku.", summary = "Ustvari nakupovalni seznam",
             tags = "nakupovalni seznami", responses = {
@@ -108,6 +121,10 @@ public class NakupovalniSeznamiVir extends Application {
                 .entity(ustvarjen)
                 .build();
     }
+    //vaje 7
+    @Schema(description = "Posodobi nakupovalni seznam")
+    @SecurityRequirement(name = "none")
+    //////
     ///vaje6/////////
     @Operation(description = "Posodobi nakupovalni seznam.", summary = "Posodobitev nakupovalnega seznama",
             tags = "nakupovalni seznami",
@@ -143,6 +160,11 @@ public class NakupovalniSeznamiVir extends Application {
                 .entity(upravljanjeNakupovalnihSeznamovZrno.dodajArtiklaVSeznam(nakupovalniSeznamId, artikelId))
                 .build();
     }
+
+    //vaje 7
+    @Schema(description = "Izbrise nakupovalni seznam")
+    @SecurityRequirement(name = "none")
+    //////
     ///vaje6/////////
     @Operation(description = "Odstranitev nakupovalnega seznama", summary = "Odstranitev nakupovalnega seznama",
             tags = "nakupovalni seznami",
