@@ -2,15 +2,19 @@ package si.fri.prpo.skupina14.dtos;
 
 public class UporabnikDto {
 
-    private Integer uporabnikId;
+    private Integer id;
     private String ime;
     private String priimek;
     private String uporabniskoIme;
     private String email;
 
-    public Integer getUporabnikId() { return uporabnikId; }
+    public Integer getId() {
+        return id;
+    }
 
-    public void setUporabnikId(Integer uporabnikId) { this.uporabnikId = uporabnikId; }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getIme() { return ime; }
 

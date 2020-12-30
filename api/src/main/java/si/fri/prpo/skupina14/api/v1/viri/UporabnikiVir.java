@@ -13,6 +13,7 @@ import si.fri.prpo.skupina14.dtos.*;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import si.fri.prpo.skupina14.zrna.*;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -26,6 +27,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @ApplicationScoped
+@CrossOrigin(supportedMethods = "GET, POST, PUT, DELETE, HEAD, OPTIONS")
 public class UporabnikiVir {
     @Context
     protected UriInfo uriInfo;
