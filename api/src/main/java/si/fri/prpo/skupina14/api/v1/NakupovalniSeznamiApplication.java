@@ -12,7 +12,10 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import javax.annotation.security.DeclareRoles;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.*;
+
 //vaje 6////////
+@SecurityScheme(name = "openid-connect", type = SecuritySchemeType.OPENIDCONNECT,
+        openIdConnectUrl = "http://auth-server-url/.well-known/openid-configuration")
 @OpenAPIDefinition(info = @Info(title = "Nakupovalni seznami API", version = "v1",
                 contact = @Contact(email = "prpo@fri.uni-lj.si"),
                 license = @License(
@@ -20,7 +23,8 @@ import javax.ws.rs.core.*;
                         url = "https://www.apache.org/licenses/LICENSE-2.0.html"
                 ),
                 description = "API, ki omogoca enostavno upravljanje z nakupovalnimi seznami."),
-        servers = @Server(url ="http://localhost:8080/v1")
+        servers = @Server(url ="http://localhost:8080/v1"),
+        security = @SecurityRequirement(name = "openid-connect")
 )
 ////////////////////////
 @ApplicationPath("v1")

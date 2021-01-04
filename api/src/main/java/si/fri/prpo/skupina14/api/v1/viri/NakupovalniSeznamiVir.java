@@ -1,5 +1,6 @@
 package si.fri.prpo.skupina14.api.v1.viri;
 import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.security.annotations.Secure;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -11,6 +12,7 @@ import si.fri.prpo.skupina14.dtos.*;
 import si.fri.prpo.skupina14.nakupovalniSeznam.entitete.*;
 import si.fri.prpo.skupina14.zrna.*;
 
+import javax.annotation.security.PermitAll;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
