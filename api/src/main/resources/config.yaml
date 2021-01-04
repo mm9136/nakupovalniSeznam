@@ -8,7 +8,7 @@ kumuluzee:
       enaled: true
   datasources:
     - jndi-name: jdbc/NakupovalniSeznamDS
-      connection-url: jdbc:postgresql://172.17.0.2:5432/uporabniki
+      connection-url: jdbc:postgresql://localhost:5432/uporabniki
       #localhost namesto 172.17.0.2
       username: postgres
       password: postgres
