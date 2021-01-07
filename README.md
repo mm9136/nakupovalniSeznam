@@ -1,5 +1,16 @@
 # nakupovalniSeznam
 #
+
+#vaje 6:
+REST KLICI
+ostranjevanje: GET http://localhost:8080/v1/artikli?offset=2&limit=3
+
+sortiranje: GET http://localhost:8080/v1/uporabniki?order=email ASC,priimek DESC
+
+filtriranje: GET http://localhost:8080/v1/oznake?filter=id:IN:[1,2,3]
+
+openapi tj swagger koji se sam napravi: http://localhost:8080/api-specs/ui/
+- ovo za napake je NeveljavniRegistriraniUporabnik na apiju u mappers, i koristimo ga u storitve u UporabnikZrno
 #vaje 7: 
 
 get + http:/localhost:8080/v1/artikli/1

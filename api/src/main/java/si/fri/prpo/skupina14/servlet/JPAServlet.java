@@ -107,12 +107,6 @@ public class JPAServlet extends HttpServlet {
         //izpisemo vse artikle v nakupovalnem seznamu
         //writer.append(upravljanjeNakupovalnihSeznamovZrno.izpisiVseArtikle(nakupovalniSeznamDto));
         */
-        ///vaje 6//////////////////DEMONSTRACIJA ZA ZAGOVOR
-        //REST KLICI
-        // ostranjevanje: GET http://localhost:8080/v1/artikli?offset=2&limit=3
-        // sortiranje GET http://localhost:8080/v1/uporabniki?order=email ASC,priimek DESC
-        // filtriranje GET http://localhost:8080/v1/oznake?filter=id:IN:[1,2,3]
-        //////////////////////////////
 
     }
 

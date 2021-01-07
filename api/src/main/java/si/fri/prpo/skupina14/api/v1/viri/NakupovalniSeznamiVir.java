@@ -23,6 +23,8 @@ import java.util.List;
 @Path("nakupovalniSeznami")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@Secure
+@PermitAll
 public class NakupovalniSeznamiVir extends Application {
     @Context
     protected UriInfo uriInfo;

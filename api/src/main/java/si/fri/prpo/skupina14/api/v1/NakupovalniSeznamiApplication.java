@@ -26,6 +26,7 @@ import javax.ws.rs.core.*;
         servers = @Server(url ="http://localhost:8080/v1"),
         security = @SecurityRequirement(name = "openid-connect")
 )
+
 ////////////////////////
 @ApplicationPath("v1")
 //to je naloga sa vaja 5
